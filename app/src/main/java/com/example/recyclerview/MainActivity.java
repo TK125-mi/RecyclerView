@@ -89,12 +89,12 @@ public class MainActivity extends AppCompatActivity {
 
     private class RecyclerListViewHolder extends RecyclerView. ViewHolder {
         public TextView _AlarmNameRow;
-        public TextView _tvMenuPriceRow;
+        public TextView _tvTimeRow;
 
         public RecyclerListViewHolder(@NonNull View itemView) {
             super(itemView);
             _AlarmNameRow = itemView.findViewById(R.id.tvAlarmNameRow);
-            _tvMenuPriceRow = itemView.findViewById(R.id.tvAlarmRow);
+            _tvTimeRow = itemView.findViewById(R.id.tvAlarmRow);
         }
     }
     /**
@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
 
             // メニュー名と金額をビューホルダ中のTextViewに設定。
             holder._AlarmNameRow.setText(alarmName);
-            holder._tvMenuPriceRow.setText(time);
+            holder._tvTimeRow.setText(time);
         }
 
         @Override
@@ -157,9 +157,9 @@ public class MainActivity extends AppCompatActivity {
     private class ItemClickListener implements View.OnClickListener {
         @Override
         public void onClick(View view) {
-            // タップされたLinearLayout内にあるアラーム名表示TextViewを取得。
+            // タップされたLinearLayout内にあるアラーム名TextViewを取得。
             TextView alarmName =  view.findViewById(R.id.tvAlarmNameRow);
-            // アラーム時間をTextViewから表示されているメニュー名文字列を取得。
+            // タップされたLinearLayout内にあるアラーム時間TextViewを取得。
             TextView alarmTime =view.findViewById(R.id.tvAlarmRow);
 
             String msg = alarmName.getText().toString()+" : "+alarmTime.getText().toString();
