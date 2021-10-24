@@ -62,12 +62,9 @@ public class MainActivity extends AppCompatActivity {
         // RecyclerViewに区切り線オブジェクトを設定。
         lvMenu.addItemDecoration(decorator);
 
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, AddAlarmActivity.class);
-                startActivity(intent);
-            }
+        fab.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, AddAlarmActivity.class);
+            startActivity(intent);
         });
     }
 
@@ -87,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         return menuList;
     }
 
-    private class RecyclerListViewHolder extends RecyclerView. ViewHolder {
+    private static class RecyclerListViewHolder extends RecyclerView. ViewHolder {
         public TextView _AlarmNameRow;
         public TextView _tvTimeRow;
 
@@ -104,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         /**
          * リストデータを保持するフィールド。
          */
-        private List<Map<String, Object>> _listData;
+        private final List<Map<String, Object>> _listData;
 
         /**
          * コンストラクタ。
@@ -116,18 +113,18 @@ public class MainActivity extends AppCompatActivity {
             _listData = listData;
         }
 
+        @NonNull
         @Override
-        public RecyclerListViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public RecyclerListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             // レイアウトインフレータを取得。
             LayoutInflater inflater = LayoutInflater.from(MainActivity.this);
             // row.xmlをインフレートし、1行分の画面部品とする。
             View view = inflater.inflate(R.layout.row, parent, false);
             // インフレートされた1行分の画面部品にリスナを設定。
             view.setOnClickListener(new ItemClickListener());
-            // ビューホルダオブジェクトを生成。
-            RecyclerListViewHolder holder = new RecyclerListViewHolder(view);
+
             // 生成したビューホルダをリターン。
-            return holder;
+            return new RecyclerListViewHolder(view);
         }
 
         @Override
