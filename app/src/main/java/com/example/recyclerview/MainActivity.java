@@ -40,20 +40,20 @@ public class MainActivity extends AppCompatActivity {
         toolbarLayout.setTitle(getString(R.string.toolbar_title));
         toolbarLayout.setExpandedTitleColor(Color.WHITE);
         toolbarLayout.setCollapsedTitleTextColor(Color.LTGRAY);
-        FloatingActionButton fab = findViewById(R.id.fabEmail);
+        FloatingActionButton fab = findViewById(R.id.fabPlus);
 
 
         // RecyclerViewを取得。
-        RecyclerView lvMenu = findViewById(R.id.lvMenu);
+        RecyclerView lvMenu = findViewById(R.id.lvAlarm);
         // LinearLayoutManagerオブジェクトを生成。
         LinearLayoutManager layout = new LinearLayoutManager(MainActivity.this);
 
         // RecyclerViewにレイアウトマネージャーとしてLinearLayoutManagerを設定。
         lvMenu.setLayoutManager(layout);
         // アラームリストデータを生成。
-        List<Map<String, Object>> menuList = createTimeList();
+        List<Map<String, Object>> alarmList = createTimeList();
         // アダプタオブジェクトを生成。
-        RecyclerListAdapter adapter = new RecyclerListAdapter(menuList);
+        RecyclerListAdapter adapter = new RecyclerListAdapter(alarmList);
         // RecyclerViewにアダプタオブジェクトを設定。
         lvMenu.setAdapter(adapter);
 

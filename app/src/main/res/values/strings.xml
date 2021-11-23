@@ -2,4 +2,8 @@
     <string name="app_name">リサイクラービューサンプル</string>
     <string name="toolbar_title">Recycle!</string>
     <string name="alarm_name">アラーム</string>
+    <string name="request_code">リクエストコード</string>
+    <string name="cancel_name">キャンセル</string>
+    <string name="save_name">保存</string>
+    <string name="alarmhint_name">アラームのタイトル</string>
 </resources>
